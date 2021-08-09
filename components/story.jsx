@@ -1,15 +1,20 @@
 import {useState} from "react"
 import {useRouter} from "next/router"
+const esrever = require('esrever')
 
 export default function Story({children})
 {
     const router = useRouter()
 
-    const {story} = router.query
+    let {story} = router.query
 
     let isValid = !!story
 
     if (isValid){
+
+        // the story will be in reverse, lets reverse it back
+        story = esrever.reverse(story)
+
         const storyCharacterCount = story.length
         const storyWordCount = story.trim().split(" ").filter(Boolean).length
         isValid = storyWordCount === 50

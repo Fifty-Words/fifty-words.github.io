@@ -1,5 +1,6 @@
 import {useState} from "react"
 import {useRouter} from "next/router"
+const esrever = require('esrever')
 
 export default function Form({children})
 {
@@ -15,10 +16,16 @@ export default function Form({children})
 
     const handleSubmit = event => {
         event.preventDefault()
+
+        // We don't want the story to be directly readable in the URL! Otherwise some people may not click 😂
+        // Using esrever, we can safely reverse the string, supporting multibyte characters too.
+        // We're not trying to encrypt the string, so simply reversing it is more than enough to obscure it!
+        const storyReversed = esrever.reverse(story)
+
         router.push({
             pathname: "/story",
             query: {
-                story: story,
+                story: storyReversed,
             }
         })
     }
