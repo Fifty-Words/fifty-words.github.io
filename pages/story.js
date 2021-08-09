@@ -1,16 +1,15 @@
 import Head from 'next/head'
-import Image from 'next/image'
-import Form from "../components/form"
+import {default as StoryComponent} from "../components/story"
 
-export default function Home() {
+export default function Story() {
   return (
     <div>
       <Head>
-        <title>Fifty Words</title>
+        <title>Story</title>
       </Head>
 
       <main>
-        <Form/>
+        <StoryComponent/>
       </main>
 
       <footer>
