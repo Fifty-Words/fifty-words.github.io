@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "export": "cross-env NODE_ENV=production node node_modules/next/dist/bin/next export"
   },
   "dependencies": {
     "next": "11.0.1",

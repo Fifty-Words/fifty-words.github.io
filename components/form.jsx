@@ -75,7 +75,7 @@ export default function Form({children})
                                 It does not need to be a novel, merely a few compelling sentences...
                             </p>
                             <p className="pb-2">
-                                With the average typing speed of 40 words per minute for most adults, I know you've got this. ✍
+                                With the average typing speed of 40 words per minute for most adults, I know you have got this. ✍
                             </p>
                         </div>
                     )
