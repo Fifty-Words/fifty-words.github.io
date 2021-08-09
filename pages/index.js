@@ -8,8 +8,8 @@ export default function Home() {
         <title>Fifty Words</title>
       </Head>
 
-      <main>
-        {/* TODO ... */}
+      <main className={"text-green-500 p-5"}>
+        Hey Champ
       </main>
 
       <footer>
