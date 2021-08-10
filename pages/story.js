@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Header from "../components/header"
 import {default as StoryComponent} from "../components/story"
 
 export default function Story() {
@@ -7,6 +8,8 @@ export default function Story() {
       <Head>
         <title>Story</title>
       </Head>
+
+      <Header/>
 
       <main>
         <StoryComponent/>
