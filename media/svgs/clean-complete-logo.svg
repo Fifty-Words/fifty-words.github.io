@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1240.744 498">
+    <path
+        d="M473 345H361a16 16 0 00-16 16v112H49a23.94 23.94 0 01-24-23.88V49a23.94 23.94 0 0123.88-24H449a23.94 23.94 0 0124 23.88z"
+        opacity=".8"
+        fill="currentColor"
+    />
+    <path
+        d="M345 473V361a16 16 0 0116-16h112v6.1a23.9 23.9 0 01-7 16.9l-98 98a24 24 0 01-17 7z"
+        fill="currentColor"
+    />
+    <text
+        y="321.494"
+        x="137.969"
+        style="line-height:1.25"
+        font-weight="400"
+        font-size="199.553"
+        font-family="sans-serif"
+        letter-spacing="0"
+        word-spacing="0"
+        fill="#fff"
+        stroke-width="4.989"
+    >
+        <tspan
+            y="321.494"
+            x="137.969"
+            font-family="Tahoma"
+        >50</tspan>
+    </text>
+    <text
+        y="321.494"
+        x="575.664"
+        style="line-height:1.25"
+        font-weight="400"
+        font-size="199.553"
+        font-family="sans-serif"
+        letter-spacing="0"
+        word-spacing="0"
+        stroke-width="4.989"
+    >
+        <tspan
+            y="321.494"
+            x="575.664"
+            font-family="Tahoma"
+            fill="currentColor"
+        >Words</tspan>
+    </text>
+</svg>

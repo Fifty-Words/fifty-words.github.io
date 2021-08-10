@@ -1,5 +1,6 @@
 import {useState} from "react"
 import {useRouter} from "next/router"
+import {motion} from 'framer-motion'
 const esrever = require('esrever')
 
 export default function Form({children})
@@ -7,6 +8,7 @@ export default function Form({children})
     const router = useRouter()
 
     const [story, setStory] = useState("")
+    const [isFormVisible, setIsFormVisible] = useState(false)
 
     const storyCharacterCount = story.length
     const storyWordCount = story.trim().split(" ").filter(Boolean).length
@@ -30,16 +32,66 @@ export default function Form({children})
         })
     }
 
+    if (false === isFormVisible){
+        return (
+            <motion.div
+                initial="hidden"
+                animate="visible"
+                variants={{
+                    hidden: {
+                        scale: 0.2,
+                        opacity: 0,
+                    },
+                    visible: {
+                        scale: 1,
+                        opacity: 1,
+                        transition: {
+                            type: "tween",
+                            ease: "easeInOut",
+                            delay: 1.9,
+                            duration: .3,
+                        },
+                    },
+                }}
+                className="text-center pb-12"
+            >
+                <button
+                    className="inline-block px-4 py-2 rounded-full shadow-md bg-teal-600 text-white text-xs "
+                    onClick={() => setIsFormVisible(true)}
+                >Add your 50 words</button>
+            </motion.div>
+        )
+    }
+
     return (
-        <form
-            className="max-w-lg mx-auto rounded my-12 p-4 bg-white shadow-md"
+        <motion.form
+            initial="hidden"
+            animate="visible"
+            variants={{
+                hidden: {
+                    scale: 0.2,
+                    opacity: 0.2,
+                },
+                visible: {
+                    scale: 1,
+                    opacity: 1,
+                    transition: {
+                        type: "tween",
+                        ease: "easeInOut",
+                        duration: .3,
+                    },
+                },
+            }}
+            className="max-w-lg mx-auto rounded mb-12 p-4 bg-white shadow-md"
             onSubmit={handleSubmit}
         >
             <div>
                 <div>
-                    <div className="flex justify-between mb-4 rounded-full px-4 py-2 bg-gray-100 text-xs">
-                        <span>{ storyCharacterCount } char{ storyCharacterCount === 1 ? '':'s' }</span>
-                        <span className={`${isValid ? 'text-green-500':''}`}>{ storyWordCount } word{ storyWordCount === 1 ? '':'s' }</span>
+                    <div className="mb-4 rounded-full px-4 py-2 bg-gray-100 text-gray-600 text-xs">
+                        <div className={`flex justify-between transition duration-400 ${storyCharacterCount > 0 ? '':'opacity-50'}`}>
+                            <span>{ storyCharacterCount } char{ storyCharacterCount === 1 ? '':'s' }</span>
+                            <span className={`${isValid ? 'text-green-500':''}`}>{ storyWordCount } word{ storyWordCount === 1 ? '':'s' }</span>
+                        </div>
                     </div>
 
                     <textarea
@@ -48,6 +100,7 @@ export default function Form({children})
                         rows="10"
                         onChange={handleChangeStory}
                         placeholder="Begin typing here..."
+                        autoFocus
                     />
                 </div>
                 {
@@ -76,18 +129,12 @@ export default function Form({children})
                     ) : (
                         <div className="py-4 text-xs text-gray-600 max-w-md">
                             <p className="pb-2">
-                                Begin typing your own 50 word story.
-                            </p>
-                            <p className="pb-2">
-                                It does not need to be a novel, merely a few compelling sentences...
-                            </p>
-                            <p className="pb-2">
                                 With the average typing speed of 40 words per minute for most adults, I know you have got this. ✍
                             </p>
                         </div>
                     )
                 }
             </div>
-        </form>
+        </motion.form>
     )
 }

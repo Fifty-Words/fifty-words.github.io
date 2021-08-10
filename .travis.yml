@@ -3,6 +3,8 @@ node_js:
   - 14.15.0 # Level of Node.js to use
 env:
   - NEXT_TELEMETRY_DISABLED=1 # disable Next JS telemetry
+  - NEXT_PUBLIC_GOOGLE_ANALYTICS_V4_MEASUREMENT_ID=$google_analytics_v4_measurement_id
+  - GOOGLE_REPORTING_V4_API_KEY=$google_reporting_v4_api_key
 cache:
   directories:
   - node_modules # Cache the node_modules folder for quicker build times
